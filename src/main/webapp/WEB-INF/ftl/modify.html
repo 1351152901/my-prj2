@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+    <h1>修改表中数据页面</h1>
+    
+    <form action="${rc.contextPath}/modify" method = "post">
+        <label>书名:</label>
+        <input type = "text" name = "bookName"/>
+        <br/>
+        <label>出版时间:</label>
+        <input type = "text" name = "publishTime"/>
+        <br/>
+        <span>${error5}</span>
+        <button>提交</button>
+    </form>
+    
+</body>
+</html>

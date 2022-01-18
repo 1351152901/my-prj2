@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+     <h1>模糊查询结果展示如下</h1>
+     
+     <table border = "1" cellspacing = "0">
+         <tr>
+             <th>id:</th>
+             <th>书名:</th>
+             <th>出版时间:</th>
+         </tr>
+         <#books books as book>
+         <tr>
+             <td>${book.id}</td>
+             <td>${book.bookName}</td>
+             <td>${book.publishTime}</td>
+         </tr>
+         </#books>
+     </table>
+     
+     <a href = "${rc.contextPath}/index">返回图书首页</a>
+</body>
+</html>

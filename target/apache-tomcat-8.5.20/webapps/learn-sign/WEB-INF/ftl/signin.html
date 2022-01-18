@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<#import "spring.ftl" as spring/>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+     
+     <h1>登录画面</h1>
+     
+     <form action="${rc.contextPath}/signin" method = "post">
+         <label>用户名:</label>
+         <input type = "text" name ="username"/>
+         <@spring.bind "signinForm.username"/>
+         <@spring showErrors ""/>
+         <br/>
+         <label>密码:</label>
+         <input type = "password" name ="password"/>
+          <@spring.bind "signinForm.password"/>
+         <@spring showErrors ""/>
+         <br/>
+         <button>登录</button>
+     </form>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<#import "spring.ftl" as spring/> 
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script type="text/javascript" src = "${rc.contextPath}/js/jquery-1.11.3.min.js"></script>
+<body>
+   
+    <h1>欢迎注册用户</h1>
+    
+    <form action="${rc.contextPath}/signup" method = "post">
+        <label>用户名:</label>
+        <input type = "text" name = "username" id ="username" /><span id ="s1"></span>
+        <@spring.bind "signupForm.username"/>
+        <@spring.showErrors ""/>
+        <br/>
+        <label>邮箱:</label>
+        <input type = "text" name = "email"/>
+        <@spring.bind "signupForm.email"/>
+        <@spring.showErrors ""/>
+        <br/>
+        <label>密码:</label>
+        <input type = "password" name = "password"/>
+        <@spring.bind "signupForm.password"/>
+        <@spring.showErrors ""/>
+        <br/>
+        <label>确认密码::</label>
+        <input type = "text" name = "repassword"/>
+        <@spring.bind "signupForm.repassword"/>
+        <@spring.showErrors ""/>
+        <br/>
+        <button>提交</button>
+    </form>
+    
+    <script type="text/javascript">
+        $(function(){
+        	$("#username").change(function(){
+        		var url = "${rc.contextPath}/ajax";
+        		var json = {"username":$(this).val()}
+        		$.post(url,json,function(data){
+        			
+        			$("#s1").html(data);
+        		})
+        		
+        	})
+        })
+    
+    
+    
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+    
+    <h1>欢迎进入图书首页</h1>
+    <form action="${rc.contextPath}/select" method = "post">
+        <input type="text" name="bookName" placeholder="输入查询名称"/>
+		<input type="submit" value="提交"/>            
+    </form>
+     
+    <a href = "${rc.contextPath}/add">添加数据</a>
+        
+    <table border="1" cellspacing="0">
+        <tr>
+            <th>id:</th>
+            <th>书名:</th>
+            <th>出版时间:</th>
+            <th>操作1:</th>
+            <th>操作2:</th>
+        </tr>
+        <#books books as book>
+        <tr>
+            <td>${book.id}</td>
+            <td>${book.bookName}</td>
+            <td>${book.publishTime}</td>
+            <td><a href = "${rc.contextPath}/modify?id=${book.id}">修改</a></td>
+            <td><a href = "${rc.contextPath}/delete?id=${book.id}">删除</a></td>
+        </tr>
+        </#books>    
+    </table>   
+    
+</body>
+</html>
